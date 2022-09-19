@@ -1,17 +1,22 @@
 <?php
 
-if(isset($_POST['nom']) && $_POST['nom'] != "") {
-    $nom = $_POST['nom'];
+if(isset($_POST['title']) && $_POST['title'] != "") {
+    $title = $_POST['title'];
 }
 
 else {
-    $nom = Null;
+    $title = Null;
 }
 
-$url = (isset($_POST['url']) && $_POST['url'] != "") ? $_POST['url'] : Null;
+$artist = (isset($_POST['artist']) && $_POST['artist'] != "") ? $_POST['artist'] : Null;
+$year = (isset($_POST['year']) && $_POST['year'] != "") ? $_POST['year'] : Null;
+$genre = (isset($_POST['genre']) && $_POST['genre'] != "") ? $_POST['genre'] : Null;
+$label = (isset($_POST['label']) && $_POST['label'] != "") ? $_POST['label'] : Null;
+$price = (isset($_POST['price']) && $_POST['price'] != "") ? $_POST['price'] : Null;
+$picture = (isset($_POST['picture']) && $_POST['picture'] != "") ? $_POST['picture'] : Null;
 
-if ($nom == Null || $url == Null) {
-    header("Location : artist_new.php");
+if ($title == Null || $artist == Null || $year == Null || $genre == Null || $label == Null || $price == Null || $picture == Null) {
+    header("Location : disc_new.php");
     exit;
 }
 
@@ -19,10 +24,16 @@ require "db.php";
 $db = ConnexionBase();
 
 try {
-    $requete = $db -> prepare("INSERT INTO artist (artist_name, artist_url) VALUES (:nom, :url);");
-    
-    $requete -> bindValue(":url", $url, PDO::PARAM_STR);
-    $requete -> bindValue(":nom", $nom, PDO::PARAM_STR);
+    $requete = $db -> prepare("INSERT INTO artist (artist_name) VALUES (:title);");
+    $requete = $db -> prepare("INSERT INTO disc (disc_title, disc_year, disc_picture, disc_label, disc_genre, disc_price) VALUES (:artist, :year, :genre, :label, :price, :picture);");
+
+    $requete -> bindValue(":title", $title, PDO::PARAM_STR);
+    $requete -> bindValue(":artiste", $artist, PDO::PARAM_STR);
+    $requete -> bindValue(":year", $year, PDO::PARAM_STR);
+    $requete -> bindValue(":genre", $genre, PDO::PARAM_STR);
+    $requete -> bindValue(":label", $label, PDO::PARAM_STR);
+    $requete -> bindValue(":price", $price, PDO::PARAM_STR);
+    $requete -> bindValue(":picture", $picture, PDO::PARAM_STR);
 
     $requete -> execute();
 

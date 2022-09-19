@@ -22,13 +22,13 @@
     <br>
 
     <form action="script_disc_ajout.php" method="post">
-        <label for="Title">Title</label><br>
-        <input type="text" name="Title" id="Title" placeholder="Enter title">
+        <label for="title">Title</label><br>
+        <input type="text" name="title" id="title" placeholder="Enter title">
         <br><br>
 
-        <label for="Artist">Artist</label><br>
-        <span id="Artist"></span>
-        <select name="Artist" id="Artist">
+        <label for="artist">Artist</label><br>
+        <span id="artist"></span>
+        <select name="artist" id="artist">
             <option value="" selected>Veuillez selectionner un Artist</option>
             <option value="Neil Young">Neil Young</option>
             <option value="YES">YES</option>
@@ -43,24 +43,24 @@
         </select>
         <br><br>
 
-        <label for="Year">Year</label><br>
-        <input type="text" name="Year" id="Year" placeholder="Enter year"><br>
+        <label for="year">Year</label><br>
+        <input type="text" name="year" id="year" placeholder="Enter year"><br>
         <br><br>
 
-        <label for="Genre">Genre</label><br>
-        <input type="text" name="Genre" id="Genre" placeholder="Enter genre (Rock, Pop, Prog...)">
+        <label for="genre">Genre</label><br>
+        <input type="text" name="genre" id="genre" placeholder="Enter genre (Rock, Pop, Prog...)">
         <br><br>
 
-        <label for="Label">Label</label><br>
-        <input type="text" name="Label" id="Label" placeholder="Enter label (EMI, Warner, PolyGram, Univers sale...)">
+        <label for="label">Label</label><br>
+        <input type="text" name="label" id="label" placeholder="Enter label (EMI, Warner, PolyGram, Univers sale...)">
         <br><br>
 
-        <label for="Price">Price</label><br>
-        <input type="text" name="Price" id="Price" placeholder="">
+        <label for="price">Price</label><br>
+        <input type="text" name="price" id="price" placeholder="">
         <br><br>
 
-        <label for="Picture">Picture</label><br>
-        <input type="file" name="Picture" id="Picture">
+        <label for="picture">Picture</label><br>
+        <input type="file" name="picture" id="picture">
         <br><br>
         <input type="submit" value="Ajouter">
 
