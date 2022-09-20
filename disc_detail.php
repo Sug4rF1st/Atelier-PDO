@@ -5,16 +5,24 @@ $db = ConnexionBase();
 
 $id = $_GET["id"];
 
-$requete = $db -> prepare("SELECT * FROM artist JOIN disc ON artist.artist_id = disc_artist_id");
+$requete1 = $db -> prepare("SELECT * FROM disc JOIN artist ON artist.artist_id = disc.artist_id where disc_id = :id");
+$requete1 -> bindValue(":id", $id, PDO::PARAM_STR);
+$requete1 -> execute();
+$myArtist = $requete1 -> fetch(PDO::FETCH_OBJ);
+$requete1 -> closeCursor();
 
-$requete = $db -> prepare("SELECT * FROM artist WHERE artist_id=?");
-$requete = $db -> prepare("SELECT * FROM disc WHERE disc_id=?");
+//var_dump($myArtist);
+//die;
 
-$requete -> execute(array($id));
+$requete2 = $db -> prepare("SELECT * FROM artist WHERE artist_id=?");
+$requete2 -> execute([$id]);
+//$myArtist = $requete2 -> fetch(PDO::FETCH_OBJ);
+$requete2 -> closeCursor();
 
-$myArtist = $requete -> fetch(PDO::FETCH_OBJ);
-
-$requete -> closeCursor();
+$requete3 = $db -> prepare("SELECT * FROM disc WHERE disc_id=?");
+$requete3 -> execute([$id]);
+//$myArtist = $requete3 -> fetch(PDO::FETCH_OBJ);
+$requete3 -> closeCursor();
 
 ?>
 
@@ -28,29 +36,28 @@ $requete -> closeCursor();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>PDO - Détail</title>
+    <title>Détail</title>
 
 </head>
 
 <body>
 
-    Title : <br><?php echo $myArtist -> disc_title ?><br><br>
-    Artist : <br><?= $myArtist -> artist_name ?><br><br>
-    Year : <br><?= $myArtist -> disc_year ?><br><br>
-    Genre : <br><?= $myArtist -> disc_genre ?><br><br>
-    Label : <br><?= $myArtist -> disc_label ?><br><br>
-    Price : <br><?= $myArtist -> disc_price ?><br><br>
+    <table border=2>
 
+        <tr>
+            <td>Title : <br><?php echo $myArtist -> disc_title ?><br><br></td>
+            <td>Artist : <br><?= $myArtist -> artist_name ?><br><br></td>
+            <td>Year : <br><?= $myArtist -> disc_year ?><br><br></td>
+            <td>Genre : <br><?= $myArtist -> disc_genre ?><br><br></td>
+            <td>Label : <br><?= $myArtist -> disc_label ?><br><br></td>
+            <td>Price : <br><?= $myArtist -> disc_price ?><br><br></td>
+            <td>Picture : <br><?= $myArtist -> disc_picture ?><br><br></td>
 
-<a href="artist_form.php?id=<?= $myArtist -> artist_id ?>">Modifier</a>
-<a href="script_artist_delete.php?id=<?= $myArtist -> artist_id ?>">Supprimer</a>
+            <td><a href="artist_form.php?id=<?= $myArtist -> artist_id ?>">Modifier</a></td>
+            <td><a href="script_disc_delete.php?id=<?= $myArtist -> artist_id ?>">Supprimer</a></td>
+        </tr>
 
-<!--
-<?php
-    var_dump($_get[15]);
-?>
--->
-
+</table>
 </body>
 
 </html>
