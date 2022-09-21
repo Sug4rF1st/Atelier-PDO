@@ -18,9 +18,32 @@ $requete -> closeCursor();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Document</title>
+    <link rel="stylesheet" href="asset/style.css">
+
+    <title>Note 2 Music</title>
 
 </head>
+
+<div class="row">
+    <div class="col-3">
+        <h1 id="titre">Note 2 Music</h1>
+    </div>
+
+    <div class="col-9" id=note_de_music>
+        <img src="/src/image/note_de_musique.jpeg" alt="logo" id="Logo">
+    </div>
+</div>
+
+
+<div class="colonne4" id="entete">
+    <nav>
+        <ul class="Page">
+            <a href="disc.php" title="Accueil">Accueil</a>
+            <a href="disc_new.php" tilte="Ajout_de_disc">Ajout de disc</a>
+            <a href="ajout_artist" title="Ajout_d'artiste">Ajout d'Artiste</a>
+        </ul>
+    </nav>
+</div>
 
 <body>
 
@@ -43,9 +66,18 @@ $requete -> closeCursor();
             
         </tr>
     
-
     <?php endforeach; ?>
 </table>
+
+<div class="colonne5" id="pieddepage">
+    <nav>
+        <ul class="Page">
+            <a href="disc.php" tilte="Accueil">Accueil</a>
+            <a href="disc_new.php" title="Ajout_de_Disc">Ajout de disc</a>
+            <a href="ajout_artist" tilte="Ajout_d'artiste">Ajout d'Artiste</a>
+        </ul>
+    </nav>
+</div>
 
 </body>
 

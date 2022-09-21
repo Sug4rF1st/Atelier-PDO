@@ -1,3 +1,12 @@
+<?php
+include "db.php";
+$db = ConnexionBase();
+$requete4 = $db -> query ("SELECT artist_name FROM artist");
+$tableau4 = $requete4 -> fetchall(PDO::FETCH_OBJ);
+$requete4 -> closeCursor();
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -7,6 +16,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Ajout</title>
 
@@ -26,21 +37,14 @@
         <input type="text" name="title" id="title" placeholder="Enter title">
         <br><br>
 
+    <div class="defliant">
         <label for="artist">Artist</label><br>
-        <span id="artist"></span>
-        <select name="artist" id="artist">
-            <option value="" selected>Veuillez selectionner un Artist</option>
-            <option value="Neil Young">Neil Young</option>
-            <option value="YES">YES</option>
-            <option value="Rolling Stones">Rolling Stones</option>
-            <option value="Queens of the Stone Age">Queens od the Stone Age</option>
-            <option value="Serge Gainsbourg">Serge Gainsbourg</option>
-            <option value="AC/DC">AC/DC</option>
-            <option value="Marillion">Marillion</option>
-            <option value="Bob Dylan">Bob Dylan</option>
-            <option value="Fleshtones">Fleshtones</option>
-            <option value="The Clash">The Clash</option>
+        <select class="artist2" id="artist2">
+            <?php foreach($tableau4 as $artist4): ?>
+            <option><?= $artist4->artist_name; ?></option>
+            <?php endforeach;?>
         </select>
+    </div>
         <br><br>
 
         <label for="year">Year</label><br>
@@ -67,7 +71,9 @@
         <a href="disc.php"><button>Retour</button></a>
     </form>
 
+    <?php
 
+    ?>
 </body>
 
 </html>

@@ -31,3 +31,4 @@ catch (Exception $e) {
 TrtRedirection:
 header("Location: disc.php");
 exit;
+?>

@@ -1,0 +1,28 @@
+nav, footer {
+    display:flex ;
+    justify-content: center;
+    background-color: black;
+}
+
+nav a, footer a {
+    color: white;
+}
+
+#Logo {
+    display: flex;
+    justify-content:last flex-start;
+    width: 25%;
+    
+    }
+
+#note_de_music {
+    display: flex;
+    justify-content:flex-end;
+}
+
+#titre {
+    display: flex;
+    color: orange;
+    background-color: black;
+}
+
