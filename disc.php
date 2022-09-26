@@ -18,18 +18,16 @@ $requete -> closeCursor();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="asset/style.css">
-
     <title>Note 2 Music</title>
 
 </head>
 
-<div class="row">
-    <div class="col-3">
+<div>
+    <div>
         <h1 id="titre">Note 2 Music</h1>
     </div>
 
-    <div class="col-9" id=note_de_music>
+    <div id=note_de_music>
         <img src="/src/image/note_de_musique.jpeg" alt="logo" id="Logo">
     </div>
 </div>
@@ -40,7 +38,7 @@ $requete -> closeCursor();
         <ul class="Page">
             <a href="disc.php" title="Accueil">Accueil</a>
             <a href="disc_new.php" tilte="Ajout_de_disc">Ajout de disc</a>
-            <a href="ajout_artist" title="Ajout_d'artiste">Ajout d'Artiste</a>
+            <a href="artist_new.php" title="Ajout_d'artiste">Ajout d'Artiste</a>
         </ul>
     </nav>
 </div>
@@ -49,25 +47,28 @@ $requete -> closeCursor();
 
 <h1>Liste des disques</h1>
 
-<table>
-    <?php foreach ($tableau as $disc): ?>
-        <tr>
-            <td><img src="jaquettes/<?= $disc->disc_picture ?>" width="150px"></td>
-            <td><b><?= $disc->disc_title ?></b>
-            <br>
-            <b><?= $disc->artist_name ?></b>
-            <b>Label : </b><?= $disc->disc_label ?>
-            <br>
-            <b>Year : </b><?= $disc->disc_year ?>
-            <br>
-            <b>Genre : </b><?= $disc->disc_genre ?>
-            <br>
-            <a href="disc_detail.php?id=<?= $disc->disc_id ?>"><button type="button" class="btn btn-outline-primary">Détails</button></a></td><br><br>
+<div class="container-fluid" id="disc7">
+    <table>
+        <?php foreach ($tableau as $disc): ?>
+            <tr>
+                <td><img src="jaquettes/<?= $disc->disc_picture ?>" width="100px"></td>
+                <td><b><?= $disc->disc_title ?></b>
+                <br>
+                <b><?= $disc->artist_name ?></b>
+                <b>Label : </b><?= $disc->disc_label ?>
+                <br>
+                <b>Year : </b><?= $disc->disc_year ?>
+                <br>
+                <b>Genre : </b><?= $disc->disc_genre ?>
+                <br>
+                <a href="disc_detail.php?id=<?= $disc->disc_id ?>"><button type="button" class="btn btn-outline-primary">Détails</button></a></td><br><br>
             
-        </tr>
+            </tr>
     
-    <?php endforeach; ?>
-</table>
+        <?php endforeach; ?>
+    </table>
+</div>
+
 
 <div class="colonne5" id="pieddepage">
     <nav>

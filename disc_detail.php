@@ -53,7 +53,7 @@ $requete3 -> closeCursor();
             <td>Price : <br><?= $myArtist -> disc_price ?><br><br></td>
             <td>Picture : <br><?= $myArtist -> disc_picture ?><br><br></td>
 
-            <td><a href="artist_form.php?id=<?= $myArtist -> artist_id ?>">Modifier</a></td>
+            <td><a href="disc_modif.php?id=<?= $myArtist -> artist_id ?>">Modifier</a></td>
             <td><a href="script_disc_delete.php?id=<?= $myArtist -> artist_id ?>">Supprimer</a></td>
         </tr>
 

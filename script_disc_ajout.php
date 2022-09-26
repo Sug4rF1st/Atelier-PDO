@@ -39,7 +39,7 @@ try {
     $requete -> execute();
 
     $requete -> closeCursor();
-    echo "ok";
+    
 }
 
 catch (Exception $e) {
