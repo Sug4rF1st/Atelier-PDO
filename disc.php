@@ -1,7 +1,7 @@
 <?php
 include "db.php";
-
 $db = ConnexionBase();
+
 $requete = $db -> query ("SELECT * FROM artist JOIN disc ON  artist.artist_id = disc.artist_id");
 
 $tableau = $requete -> fetchall (PDO::FETCH_OBJ);
@@ -51,7 +51,7 @@ $requete -> closeCursor();
     <table>
         <?php foreach ($tableau as $disc): ?>
             <tr>
-                <td><img src="jaquettes/<?= $disc->disc_picture ?>" width="100px"></td>
+                <td><img src="/src/jaquettes/<?= $disc->disc_picture ?>" width="100px"></td>
                 <td><b><?= $disc->disc_title ?></b>
                 <br>
                 <b><?= $disc->artist_name ?></b>
